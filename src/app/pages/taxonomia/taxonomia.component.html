@@ -1,0 +1,96 @@
+<div class="container ">
+
+    <div class="card mt-4">
+        <div class="card-header text-center">
+            <h2>Modificar/Agregar Planta🪴</h2>
+        </div>
+        <div class="card-body">
+            <p>
+                <label>Nombre:</label>
+                <input type="text" class="form-control" placeholder="Escribe nombre" [(ngModel)]="planta.nombre" />
+            </p>
+            <p>
+                <label>Reino:</label>
+                <input type="text" class="form-control" placeholder="Escribe reino" [(ngModel)]="planta.reino" />
+            </p>
+            <p>
+                <label>Clase:</label>
+                <input type="text" class="form-control" placeholder="Escribe clase" [(ngModel)]="planta.clase" />
+            </p>
+            <p>
+                <label>Orden:</label>
+                <input type="text" class="form-control" placeholder="Escribe orden" [(ngModel)]="planta.orden" />
+            </p>
+            <p>
+                <label>Familia:</label>
+                <input type="text" class="form-control" placeholder="Escribe familia" [(ngModel)]="planta.familia">
+            </p>
+            <p>
+                <label>Género:</label>
+                <input type="text" class="form-control" placeholder="Escribe género" [(ngModel)]="planta.genero" />
+            </p>
+            <p>
+                <label>Especie:</label>
+                <input type="text" class="form-control" placeholder="Escribe especie" [(ngModel)]="planta.especie" />
+            </p>
+
+            <div class="d-flex justify-content-center mt-3">
+                <button type="button" class="btn btn-primary mx-2" (click)="this.insertarPlanta()">Agregar</button>
+                <button type="button" class="btn btn-success mx-2" (click)="this.updatePlanta()">Modificar</button>
+                <button type="button" class="btn btn-danger mx-2" (click)="this.deletePlanta()">Eliminar</button>
+                <button type="button" class="btn btn-warning mx-2" (click)="this.clearPlanta()">Limpiar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- aca tabla -->
+    <div class="">
+        <div class=" text-center">
+            <h1>Taxonomía de las Plantas🌻</h1>
+        </div>
+        <div class="">
+            @if(plantas.length>0){
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Reino</th>
+                            <th>Clase</th>
+                            <th>Orden</th>
+                            <th>Familia</th>
+                            <th>Género</th>
+                            <th>Especie</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (planta of plantas; track planta.id) {
+                        <tr>
+                            <td>{{planta.id}}</td>
+                            <td>{{planta.nombre}}</td>
+                            <td>{{planta.reino}}</td>
+                            <td>{{planta.clase}}</td>
+                            <td>{{planta.orden}}</td>
+                            <td>{{planta.familia}}</td>
+                            <td>{{planta.genero}}</td>
+                            <td>{{planta.especie}}</td>
+                            <td class="acciones">
+                                <button type="button" class="btn btn-success btn-sm"
+                                    (click)="this.selectPlanta(planta)">Seleccionar</button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            }@else{
+            <h3 class="text-center">No hay productos🥺</h3>
+            }
+        </div>
+    </div>
+
+
+
+</div>

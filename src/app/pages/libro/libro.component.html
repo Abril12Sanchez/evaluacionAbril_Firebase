@@ -1,0 +1,77 @@
+<div style="margin: 20px;">
+    <h1>Catálogo de Libros</h1>
+
+    <h4>Alta de libros</h4>
+    <div class="col-sm-4">
+        <!-- <form [formGroup]="formDatos" (ngSubmit)="onSubmit()"> -->
+        <p>
+            <label>Título del libro</label>
+            <input type="text" class="form-control" placeholder="Titulo del libro" [(ngModel)]="libro.titulo" />
+            <!-- @if(enviado && formDatos.get('nombre')?.errors?.['required']){
+                <span style="color: red;">Este campo es obligatorio</span>
+                }
+                @if(enviado && formDatos.get('nombre')?.errors?.['minlength']){
+                <span style="color: red;">El nombre debe de tener mas de 10 caracteres</span>
+                } -->
+        </p>
+        <p>
+            <label>Autor del libro</label>
+            <input type="text" class="form-control" placeholder="Autor del libro" [(ngModel)]="libro.autor" />
+        </p>
+        <p>
+            <label>Editorial del libro</label>
+            <input type="text" class="form-control" placeholder="Editorial del libro" [(ngModel)]="libro.editorial" />
+        </p>
+        <p>
+            <label>Año de publicación del libro</label>
+            <input type="text" class="form-control" placeholder="Año " [(ngModel)]="libro.anioPublicacion" />
+        </p>
+        <!-- </form> -->
+
+    </div>
+
+    <table>
+        <tr>
+            <td>
+                <button type="button" class="btn btn-primary" (click)="this.insertarLibro()">Insertar</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-warning" (click)="this.updateLibro()">Actualizar</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger" (click)="this.deleteLibro()">Borrar</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="this.clearLibro()">Limpiar</button>
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <br>
+
+    <h4>Listado de libros</h4>
+    <table>
+        <thead>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Editoral</th>
+            <th>Año publicación</th>
+            <th>Seleccionar</th>
+        </thead>
+        <tbody>
+            @for (libro of libros; track libro.id)
+            {
+            <tr>
+                <td>{{libro.titulo}}</td>
+                <td>{{libro.autor}}</td>
+                <td>{{libro.editorial}}</td>
+                <td>{{libro.anioPublicacion}}</td>
+                <td>
+                    <button type="button" class="btn btn-success" (click)="selectLibro(libro)">Seleccionar</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
