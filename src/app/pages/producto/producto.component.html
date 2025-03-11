@@ -1,9 +1,9 @@
-<div style="margin:20px;">
+<div style="margin: 20px; text-align: center;">
+    <h1>Catálogo de Productos 🧃</h1>
 
-
-    <div>
-        <h4>Alta de Productos</h4>
-        <div class="col-sm-4">
+    <div class="card mx-auto">
+        <h4 >Alta de Productos</h4>
+        <div class="col-sm-12">
             <p>
                 <label>Descripción</label>
                 <input type="text" class="form-control" placeholder="Descripción" [(ngModel)]="producto.descripcion" />
@@ -12,32 +12,26 @@
                 <label>Precio</label>
                 <input type="text" class="form-control" placeholder="Precio" [(ngModel)]="producto.precio" />
             </p>
-
-            <td>
-                <button type="button" class="btn btn-primary" (click)="this.insertarProducto()">Insertar</button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-success" (click)="this.updateProducto()">Modificar</button>
-            </td>
-            <td>
-                <button type="button" class="btn btn-warning" (click)="this.clearproducto()">Limpiar</button>
-            </td>
-
-            <td><button type="button" class="btn btn-danger" (click)="this.deleteProducto()">Eliminar</button></td>
-
+        </div>
+        <div class="d-flex justify-content-between flex-wrap mt-3">
+            <button type="button" class="btn btn-primary m-1" (click)="this.insertarProducto()">Insertar</button>
+            <button type="button" class="btn btn-success m-1" (click)="this.updateProducto()">Modificar</button>
+            <button type="button" class="btn btn-warning m-1" (click)="this.clearproducto()">Limpiar</button>
+            <button type="button" class="btn btn-danger m-1" (click)="this.deleteProducto()">Eliminar</button>
         </div>
     </div>
 
-    <h1>Cátalogo de productos 🧃</h1>
+    <hr />
+    <br>
+
     @if(productos.length>0){
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Descripción</th>
                 <th>Precio</th>
                 <th>Seleccionar</th>
-                <!-- <th>Eliminar</th> -->
             </tr>
         </thead>
         <tbody>
@@ -49,7 +43,6 @@
                 <td><button type="button" class="btn btn-success"
                         (click)="this.selectProducto(producto)">Seleccionar</button>
                 </td>
-
             </tr>
             }
         </tbody>
@@ -57,5 +50,4 @@
     }@else{
     <h3>No hay productos</h3>
     }
-
 </div>
